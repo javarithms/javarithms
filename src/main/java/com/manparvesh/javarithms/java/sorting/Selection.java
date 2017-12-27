@@ -1,6 +1,20 @@
 package com.manparvesh.javarithms.java.sorting;
 
-public class Selection {
+import com.manparvesh.javarithms.java.interfaces.Sorting;
+
+public class Selection implements Sorting {
+    /**
+     * This is a simple sorting algorithm with the runtime of O(n^2).
+     * <br>
+     * Process:
+     * <br>
+     * 1. start iterating from the first element to the second last element
+     * <br>
+     * 2. for subsequent elements, find the minimum element and swap with the first element
+     *
+     * @param inputArray array to be sorted
+     * @return sorted array
+     */
     public int[] sort(int inputArray[]) {
         int len = inputArray.length;
 
