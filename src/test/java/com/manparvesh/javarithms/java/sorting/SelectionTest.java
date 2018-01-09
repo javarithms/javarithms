@@ -1,11 +1,11 @@
-package com.manparvesh.javarithms.test.java.sorting;
+package com.manparvesh.javarithms.java.sorting;
 
-import com.manparvesh.javarithms.java.sorting.Selection;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 public class SelectionTest {
+
     @Test
     public void testSort() {
         int ar[] = { 1, 3, 4, 23, 21, 65, 3, 7, 8 };
