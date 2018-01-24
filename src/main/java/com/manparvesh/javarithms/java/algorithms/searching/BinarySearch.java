@@ -1,4 +1,4 @@
-package com.manparvesh.javarithms.java.searching;
+package com.manparvesh.javarithms.java.algorithms.searching;
 
 import com.manparvesh.javarithms.java.exceptions.ArrayNotSortedException;
 import com.manparvesh.javarithms.java.interfaces.Searching;

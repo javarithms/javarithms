@@ -1,4 +1,4 @@
-package com.manparvesh.javarithms.java.sorting;
+package com.manparvesh.javarithms.java.algorithms.sorting;
 
 import org.junit.Test;
 
