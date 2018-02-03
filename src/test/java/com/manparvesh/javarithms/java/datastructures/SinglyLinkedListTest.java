@@ -1,5 +1,6 @@
 package com.manparvesh.javarithms.java.datastructures;
 
+import com.manparvesh.javarithms.java.datastructures.linkedlist.SinglyLinkedList;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

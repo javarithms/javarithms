@@ -1,7 +1,5 @@
 package com.manparvesh.javarithms.java.interfaces.datastructures;
 
-import com.manparvesh.javarithms.java.datastructures.SinglyLinkedList.Node;
-
 public interface LinkedList {
     int length();
 
@@ -10,11 +8,11 @@ public interface LinkedList {
     /*
      * insertions
      * */
-    boolean insertAtBeginning(Node node);
+    boolean insertAtBeginning(LinkedListNode node);
 
-    boolean insertAtEnd(Node node);
+    boolean insertAtEnd(LinkedListNode node);
 
-    boolean insertAtNthPosition(Node node, int position);
+    boolean insertAtNthPosition(LinkedListNode node, int position);
 
     boolean insertAtBeginning(int data);
 
@@ -27,7 +25,7 @@ public interface LinkedList {
      * */
     boolean delete(int data);
 
-    boolean delete(Node node);
+    boolean delete(LinkedListNode node);
 
     boolean deleteAt(int position);
 
