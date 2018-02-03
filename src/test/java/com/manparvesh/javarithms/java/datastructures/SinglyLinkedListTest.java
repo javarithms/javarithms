@@ -9,10 +9,6 @@ import static org.junit.Assert.assertTrue;
 public class SinglyLinkedListTest {
 
     @Test
-    public void length() {
-    }
-
-    @Test
     public void insertAtBeginning() {
         SinglyLinkedList singlyLinkedList = new SinglyLinkedList();
         singlyLinkedList.insertAtBeginning(0);
