@@ -10,11 +10,15 @@ buildscript {
     repositories {
         mavenCentral()
     }
-    
+
     dependencies {
         classpath(kotlinModule("gradle-plugin", kotlin_version))
     }
-    
+
+}
+
+plugins {
+    java
 }
 
 apply {
@@ -31,6 +35,7 @@ repositories {
 dependencies {
     compile(kotlinModule("stdlib-jdk8", kotlin_version))
     testCompile("junit", "junit", "4.12")
+    compile("org.projectlombok:lombok:1.16.18")
 }
 
 configure<JavaPluginConvention> {

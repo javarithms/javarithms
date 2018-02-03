@@ -1,6 +1,6 @@
 package com.manparvesh.javarithms.java.algorithms.sorting;
 
-import com.manparvesh.javarithms.java.interfaces.Sorting;
+import com.manparvesh.javarithms.java.interfaces.algorithms.Sorting;
 
 public class Selection implements Sorting {
     /**

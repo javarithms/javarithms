@@ -1,4 +1,4 @@
-package com.manparvesh.javarithms.java.interfaces;
+package com.manparvesh.javarithms.java.interfaces.algorithms;
 
 /**
  * Interface to be used by classes related to sorting algorithms

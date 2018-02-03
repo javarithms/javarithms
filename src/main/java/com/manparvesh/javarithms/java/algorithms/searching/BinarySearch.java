@@ -1,7 +1,7 @@
 package com.manparvesh.javarithms.java.algorithms.searching;
 
 import com.manparvesh.javarithms.java.exceptions.ArrayNotSortedException;
-import com.manparvesh.javarithms.java.interfaces.Searching;
+import com.manparvesh.javarithms.java.interfaces.algorithms.Searching;
 
 public class BinarySearch implements Searching {
     @Override

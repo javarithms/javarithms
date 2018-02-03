@@ -1,4 +1,4 @@
-package com.manparvesh.javarithms.java.interfaces;
+package com.manparvesh.javarithms.java.interfaces.algorithms;
 
 import com.manparvesh.javarithms.java.exceptions.ArrayNotSortedException;
 
