@@ -1,16 +1,13 @@
 package com.manparvesh.javarithms.java.datastructures.linkedlist;
 
-import com.manparvesh.javarithms.java.interfaces.datastructures.LinkedList;
-import com.manparvesh.javarithms.java.interfaces.datastructures.LinkedListNode;
-
 import java.util.ArrayList;
 
-public class DoublyLinkedList implements LinkedList {
+public class DoublyLinkedList {
     private DoublyLinkedListNode head;
 
-    @Override public int length() {
+    public int length() {
         int length = 0;
-        LinkedListNode current = head;
+        DoublyLinkedListNode current = head;
         while (current != null) {
             length++;
             current = current.getNext();
@@ -18,8 +15,8 @@ public class DoublyLinkedList implements LinkedList {
         return length;
     }
 
-    @Override public void printList() {
-        LinkedListNode current = head;
+    public void printList() {
+        DoublyLinkedListNode current = head;
         while (current != null) {
             System.out.print(current.getData() + (current.getNext() != null ? " <-> " : ""));
             current = current.getNext();
@@ -27,30 +24,29 @@ public class DoublyLinkedList implements LinkedList {
         System.out.println();
     }
 
-    @Override public boolean insertAtBeginning(LinkedListNode node) {
+    public boolean insertAtBeginning(DoublyLinkedListNode node) {
         node.setNext(head);
-        head = (DoublyLinkedListNode)node;
+        head = node;
         return true;
     }
 
-    @Override public boolean insertAtEnd(LinkedListNode node) {
+    public boolean insertAtEnd(DoublyLinkedListNode node) {
         if (head == null) {
-            head = (DoublyLinkedListNode)node;
+            head = node;
         } else {
             DoublyLinkedListNode currentNode = head;
-            DoublyLinkedListNode nodeToInsert = (DoublyLinkedListNode)node;
             while (currentNode.getNext() != null) {
-                currentNode = (DoublyLinkedListNode)currentNode.getNext();
+                currentNode = currentNode.getNext();
             }
-            nodeToInsert.setPrevious(currentNode);
-            currentNode.setNext(nodeToInsert);
+            node.setPrevious(currentNode);
+            currentNode.setNext(node);
         }
         return true;
     }
 
-    @Override public boolean insertAtNthPosition(LinkedListNode node, int position) {
+    public boolean insertAtNthPosition(DoublyLinkedListNode node, int position) {
         if (head == null) {
-            head = (DoublyLinkedListNode)node;
+            head = node;
             return true;
         }
 
@@ -60,10 +56,10 @@ public class DoublyLinkedList implements LinkedList {
         }
 
         DoublyLinkedListNode currentNode = head;
-        DoublyLinkedListNode nodeToInsert = (DoublyLinkedListNode)node;
+        DoublyLinkedListNode nodeToInsert = node;
         int currentPosition = 1;
         while (currentNode != null && currentPosition < position) {
-            currentNode = (DoublyLinkedListNode)currentNode.getNext();
+            currentNode = currentNode.getNext();
             currentPosition++;
         }
         if (currentNode != null) {
@@ -74,25 +70,23 @@ public class DoublyLinkedList implements LinkedList {
         return currentPosition == position;
     }
 
-    @Override public boolean insertAtBeginning(int data) {
+    public boolean insertAtBeginning(int data) {
         DoublyLinkedListNode node = new DoublyLinkedListNode(data);
-        insertAtBeginning(node);
-        return true;
+        return insertAtBeginning(node);
     }
 
-    @Override public boolean insertAtEnd(int data) {
+    public boolean insertAtEnd(int data) {
         DoublyLinkedListNode node = new DoublyLinkedListNode(data);
-        insertAtEnd(node);
-        return true;
+        return insertAtEnd(node);
     }
 
-    @Override public boolean insertAtNthPosition(int data, int position) {
+    public boolean insertAtNthPosition(int data, int position) {
         DoublyLinkedListNode node = new DoublyLinkedListNode(data);
         insertAtNthPosition(node, position);
         return true;
     }
 
-    @Override public boolean delete(int data) {
+    public boolean delete(int data) {
         if (head == null) {
             return false;
         }
@@ -113,35 +107,36 @@ public class DoublyLinkedList implements LinkedList {
                 currentNode.setNext(currentNode.getNext().getNext());
                 return true;
             }
-            currentNode = (DoublyLinkedListNode)currentNode.getNext();
+            currentNode = currentNode.getNext();
         }
         return false;
     }
 
-    // todo remove all interfaces related to linked lists, because it's not needed.
-    // All implementations have their own config, and so should define their nodes inside their classes
-    // and should have functions that use only those inner class nodes
-    @Override public boolean delete(LinkedListNode node) {
+    public boolean delete(DoublyLinkedListNode node) {
+        return delete(node.data);
+    }
+
+    public boolean deleteAt(int position) {
+        DoublyLinkedListNode currentNode = head;
+        int currentPosition = 1;
+        if (head != null) {
+            
+        }
         return false;
     }
 
     // todo
-    @Override public boolean deleteAt(int position) {
+    public boolean deleteList() {
         return false;
     }
 
     // todo
-    @Override public boolean deleteList() {
+    public boolean deleteLast() {
         return false;
     }
 
     // todo
-    @Override public boolean deleteLast() {
-        return false;
-    }
-
-    // todo
-    @Override public boolean deleteFirst() {
+    public boolean deleteFirst() {
         return false;
     }
 
@@ -174,7 +169,7 @@ public class DoublyLinkedList implements LinkedList {
     /**
      * Node definition for doubly linked list
      */
-    class DoublyLinkedListNode implements LinkedListNode {
+    class DoublyLinkedListNode {
         private int data;
         private DoublyLinkedListNode next;
         private DoublyLinkedListNode previous;
@@ -183,15 +178,15 @@ public class DoublyLinkedList implements LinkedList {
             this.data = data;
         }
 
-        @Override public int getData() {
+        int getData() {
             return data;
         }
 
-        @Override public LinkedListNode getNext() {
+        DoublyLinkedListNode getNext() {
             return next;
         }
 
-        @Override public void setNext(LinkedListNode next) {
+        void setNext(DoublyLinkedListNode next) {
             this.next = (DoublyLinkedListNode)next;
         }
 
