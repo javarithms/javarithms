@@ -1,40 +1,41 @@
 package com.manparvesh.javarithms.java.algorithms.searching;
 
-import com.manparvesh.javarithms.java.exceptions.ArrayNotSortedException;
-import com.manparvesh.javarithms.java.interfaces.algorithms.Searching;
+public class BinarySearch {
+    public int binarySearchIterative(int elementToSearch, int[] arrayToSearchIn) {
+        return binarySearchIterativeUtil(elementToSearch, arrayToSearchIn, 0, arrayToSearchIn.length - 1);
+    }
 
-public class BinarySearch implements Searching {
-    @Override
-    public int search(int elementToSearch, int[] arrayToSearchIn) throws ArrayNotSortedException {
-        /*
-         * Binary search requires that its members are already sorted
-         * */
-        if (arrayToSearchIn.length > 1) {
-            for (int i = 0; i < arrayToSearchIn.length - 1; i++) {
-                if (arrayToSearchIn[i] > arrayToSearchIn[i + 1]) {
-                    throw new ArrayNotSortedException("The array needs to be sorted for performing Binary Search");
-                }
+    private int binarySearchIterativeUtil(int elementToSearch, int[] arrayToSearchIn, int left, int right) {
+        while (left <= right) {
+            int mid = (right - left) / 2 + left;
+            if (arrayToSearchIn[mid] == elementToSearch) {
+                return mid;
+            }
+            if (arrayToSearchIn[mid] > elementToSearch) {
+                // move left
+                right = mid - 1;
+            } else {
+                left = mid + 1;
             }
         }
+        return -1;
+    }
 
-        int left = 0;
-        int right = arrayToSearchIn.length - 1;
+    public int binarySearchRecursive(int elementToSearch, int[] arrayToSearchIn) {
+        return binarySearchRecursiveUtil(elementToSearch, arrayToSearchIn, 0, arrayToSearchIn.length - 1);
+    }
 
-        if (elementToSearch < arrayToSearchIn[left] || arrayToSearchIn[right] < elementToSearch) {
-            return -1;
-        }
+    private int binarySearchRecursiveUtil(int x, int ar[], int left, int right) {
+        if (left <= right) {
+            int mid = (right - left) / 2 + left;
+            if (ar[mid] == x) {
+                return mid;
+            }
 
-        int middle;
-        while (left < right) {
-            middle = left + (right - left) / 2;
-            if (elementToSearch > arrayToSearchIn[middle]) {
-                // look for it in the right part, so set left to middle
-                left = middle + 1;
-            } else if (elementToSearch < arrayToSearchIn[middle]) {
-                right = middle;
+            if (ar[mid] > x) {
+                return binarySearchRecursiveUtil(x, ar, left, mid - 1);
             } else {
-                // found
-                return middle;
+                return binarySearchRecursiveUtil(x, ar, mid + 1, right);
             }
         }
         return -1;
