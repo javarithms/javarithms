@@ -3,6 +3,7 @@ package com.manparvesh.javarithms.java.datastructures.string;
 import org.junit.Test;
 
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertTrue;
 
 public class SuffixArrayTest {
 
@@ -19,5 +20,15 @@ public class SuffixArrayTest {
         SuffixArray suffixArray = new SuffixArray();
         int ar[] = suffixArray.getSuffixArrayEfficient("banana");
         assertArrayEquals(new int[] { 5, 3, 1, 0, 4, 2 }, ar);
+    }
+
+    @Test
+    public void testSearch() {
+        SuffixArray suffixArray = new SuffixArray();
+        String text = "banana";
+        int ar[] = suffixArray.getSuffixArrayEfficient(text);
+        String pattern = "nan";
+
+        assertTrue(suffixArray.search(pattern, text, ar));
     }
 }

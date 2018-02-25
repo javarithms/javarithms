@@ -103,6 +103,25 @@ public class SuffixArray {
         return suffixArray;
     }
 
+    public boolean search(String pattern, String text, int[] suffixArray) {
+        int n = text.length(), m = pattern.length();
+        int left = 0, right = n - 1;
+        while (left <= right) {
+            int mid = (right - left) / 2 + left;
+            int comparison = pattern.compareTo(text.substring(mid, mid + m));
+            if (comparison == 0) {
+                System.out.println("Found");
+                return true;
+            }
+            if (comparison < 0) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
+            }
+        }
+        return false;
+    }
+
     private class SuffixEfficient implements Comparable<SuffixEfficient> {
         int rank1;
         int rank2;
