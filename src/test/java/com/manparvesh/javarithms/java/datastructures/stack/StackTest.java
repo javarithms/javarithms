@@ -5,10 +5,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class StackTest {
-    @Test
-    public void test() {
-        Stack stack = new Stack(10);
-
+    private void testStack(Stack stack) {
         for (int i = 0; i < 10; i++) {
             stack.push(i + 1);
             assertEquals(i + 1, stack.size());
@@ -25,5 +22,17 @@ public class StackTest {
             assertEquals(-1, stack.pop());
             assertEquals(0, stack.size());
         }
+    }
+
+    @Test
+    public void testStackArray() {
+        Stack stack = new StackArray(10);
+        testStack(stack);
+    }
+
+    @Test
+    public void testStackLL() {
+        Stack stack = new StackLL(10);
+        testStack(stack);
     }
 }
