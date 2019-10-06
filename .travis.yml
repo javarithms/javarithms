@@ -2,6 +2,15 @@ sudo: required
 
 language: java
 
-script:
-  - chmod +x gradlew
-  - ./gradlew test
+#script:
+#  - chmod +x gradlew
+#  - ./gradlew test
+
+jdk:
+  - openjdk8
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+notifications:
+  email: false
