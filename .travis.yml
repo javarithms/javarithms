@@ -2,12 +2,11 @@ sudo: required
 
 language: java
 
-#script:
-#  - chmod +x gradlew
-#  - ./gradlew test
-
 jdk:
   - openjdk8
+
+script:
+  - "mvn cobertura:cobertura"
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
